@@ -1,17 +1,8 @@
-import { useAuth } from '@clerk/expo'
-import { AuthView } from '@clerk/expo/native'
-import { useRouter } from 'expo-router'
-import { useEffect } from 'react'
+import { AuthView } from '@clerk/expo/native';
+import useSocailAuth from '../hooks/useSoiaclAuth';
 
 export default function SignInScreen() {
-  const { isSignedIn } = useAuth({ treatPendingAsSignedOut: false })
-  const router = useRouter()
 
-  useEffect(() => {
-    if (isSignedIn) {
-      router.replace('/(home)')
-    }
-  }, [isSignedIn])
-
+  const { handleSocialAuth, loadingStartegy } = useSocailAuth();
   return <AuthView mode="signInOrUp" />
 }
