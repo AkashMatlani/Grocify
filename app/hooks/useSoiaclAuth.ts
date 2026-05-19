@@ -2,7 +2,6 @@ import { useSSO } from "@clerk/expo";
 import { useState } from "react";
 import { Alert } from "react-native";
 
-
 const useSocailAuth = () => {
     const [loadingStartegy, setLoadingStartegy] = useState<string | null>(null);
     const { startSSOFlow } = useSSO();
