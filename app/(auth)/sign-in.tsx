@@ -1,4 +1,4 @@
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { Pressable, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -11,7 +11,7 @@ export default function SignInScreen() {
   const isAppleClicked = loadingStartegy === "oauth_apple";
   const isGitHubClicked = loadingStartegy === "oauth_github";
 
-  const isLoading =isGoogleClicked || isAppleClicked || isGitHubClicked;
+  const isLoading = isGoogleClicked || isAppleClicked || isGitHubClicked;
 
   return (
     <SafeAreaView className='flex-1 bg-primary'>
@@ -28,7 +28,6 @@ export default function SignInScreen() {
         <Text className='mt-1 text-center text-[14px] text-primary-foreground/80 dark:text-foreground/75'>
           Plan smater. Shop happier.
         </Text>
-
 
         <View className='mt-6 border border-white/20 bg-white/10 p-3 rounded-[30px]'>
           <Image source={require("../../assets/images/auth.png")}
@@ -59,11 +58,43 @@ export default function SignInScreen() {
               <Image source={require("../../assets/images/google.png")}
                 style={{ width: 20, height: 20 }} />
             </View>
-             <Text  className="ml-3 flex-1 text-lg font-semibold text-card-foreground">
-             {isGoogleClicked? "Connecting Google..." : "Continue with Google"}
-             </Text>
+            <Text className="ml-3 flex-1 text-lg font-semibold text-card-foreground">
+              {isGoogleClicked ? "Connecting Google..." : "Continue with Google"}
+            </Text>
 
-             <FontAwesome name="angle-right" size ={18} color="#56fe66"/>
+            <FontAwesome name="angle-right" size={18} color="#56fe66" />
+          </Pressable>
+          {/* Github */}
+          <Pressable
+            className={`mb-3 h-14 flex-row items-center rounded-2xl 
+          border border-border bg-card px-4 active:opacity-90
+           ${isLoading ? "opacity-70" : ""}`}
+            disabled={isLoading}
+            onPress={() => handleSocialAuth("oauth_github")}>
+
+            <View className="h-8 w-8 items-center justify-center rounded-full bg-white">
+              <FontAwesome name="github" size={24} color="#111" />
+            </View>
+            <Text className="ml-3 flex-1 text-lg font-semibold text-card-foreground">
+              {isGitHubClicked ? "Connecting Github..." : "Continue with Github"}
+            </Text>
+            <FontAwesome name="angle-right" size={18} color="#56fe66" />
+          </Pressable>
+
+          {/* Apple */}
+          <Pressable
+            className={`mb-3 h-14 flex-row items-center rounded-2xl 
+          border border-border bg-card px-4 active:opacity-90
+           ${isLoading ? "opacity-70" : ""}`}
+            disabled={isLoading}
+            onPress={() => handleSocialAuth("oauth_apple")}>
+            <View className="h-8 w-8 items-center justify-center rounded-full bg-white">
+              <FontAwesome6 name="apple" size={24} color="#111" />
+            </View>
+            <Text className="ml-3 flex-1 text-lg font-semibold text-card-foreground">
+              {isAppleClicked ? "Connecting Apple..." : "Continue with Apple"}
+            </Text>
+            <FontAwesome name="angle-right" size={18} color="#56fe66" />
           </Pressable>
         </View>
       </View>
