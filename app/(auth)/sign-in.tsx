@@ -14,7 +14,7 @@ export default function SignInScreen() {
   const isLoading = isGoogleClicked || isAppleClicked || isGitHubClicked;
 
   return (
-    <SafeAreaView className='flex-1 bg-primary'>
+    <SafeAreaView className='flex-1 bg-primary dark:bg-background' edges={["top"]}>
       {/* decorative elements */}
       <View className="absolute -left-16 top-12 h-56 w-56 rounded-full bg-primary/80 dark:bg-background/40" />
       <View className="absolute right-[-74px] top-40 h-72 w-72 rounded-full bg-primary/70 dark:bg-background/35" />
@@ -97,6 +97,8 @@ export default function SignInScreen() {
             <FontAwesome name="angle-right" size={18} color="#56fe66" />
           </Pressable>
         </View>
+        <Text className="mt-3 text-center text-sm leading-5 text-muted-foreground">
+          By continuing, you agree toour Terms and Privacy Policy.</Text>
       </View>
 
     </SafeAreaView>
