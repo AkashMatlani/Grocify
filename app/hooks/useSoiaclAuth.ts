@@ -6,7 +6,7 @@ const useSocailAuth = () => {
     const [loadingStartegy, setLoadingStartegy] = useState<string | null>(null);
     const { startSSOFlow } = useSSO();
 
-    const handleSocialAuth = async (strategy: "oauth_google" | "oauth_github" | "oauth_facebook") => {
+    const handleSocialAuth = async (strategy: "oauth_google" | "oauth_github" | "oauth_apple") => {
         if (loadingStartegy) return;
         setLoadingStartegy(strategy);
         try {
@@ -25,8 +25,9 @@ const useSocailAuth = () => {
             setLoadingStartegy(null);
         }
 
-        return { handleSocialAuth, loadingStartegy }
     }
+    return { handleSocialAuth, loadingStartegy }
+
 };
 
 export default useSocailAuth;
