@@ -1,11 +1,12 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const PlannerScreen = () => {
     return (
-        <View>
+        <SafeAreaView>
             <Text>Planner</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
