@@ -1,8 +1,9 @@
 import { useSSO } from "@clerk/expo";
+import { router } from "expo-router";
 import { useState } from "react";
 import { Alert } from "react-native";
 
-const useSocailAuth = () => {
+const useSocialAuth = () => {
     const [loadingStartegy, setLoadingStartegy] = useState<string | null>(null);
     const { startSSOFlow } = useSSO();
 
@@ -16,9 +17,10 @@ const useSocailAuth = () => {
                 return;
             }
             await setActive({ session: createdSessionId })
+            router.replace("/(tabs)");
 
         } catch (error) {
-            console.log("Error in socail auth", error);
+            console.log("Error in social auth", error);
             Alert.alert("Sign-in failed", "signin did not complete .Please try again");
         }
         finally {
@@ -30,4 +32,4 @@ const useSocailAuth = () => {
 
 };
 
-export default useSocailAuth;
+export default useSocialAuth;

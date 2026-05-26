@@ -1,35 +1,26 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { useAuth } from '@clerk/expo';
+import { Redirect } from 'expo-router';
+import { Icon, NativeTabs } from 'expo-router/unstable-native-tabs';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+export default function TabsLayout() {
+  const { isSignedIn, isLoaded } = useAuth()
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  if (!isLoaded) {
+    return null
+  }
 
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
+  if (!isSignedIn) {
+    return <Redirect href="/(auth)/sign-in" />
+  }
+
+  return <NativeTabs>
+    <NativeTabs.Trigger
+      name="index">
+      <Icon sf="house.fill" />
+    </NativeTabs.Trigger>
+
+    <NativeTabs.Trigger name="planner">
+      <Icon sf="plus.circle" />
+    </NativeTabs.Trigger>
+  </NativeTabs>
 }

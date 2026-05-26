@@ -46,6 +46,9 @@ export const updateGroceryItemQuantity = async (id: string, quantity: number) =>
         .set({ quantity: Math.max(1, Math.floor(quantity)), updated_at: Date.now() })
         .where(eq(groceryItems.id, id))
         .returning();
+
+    if (!rows.length) return null;
+    return rows[0];
 };
 
 export const deleteGroceryItem = async (id: string) => {
