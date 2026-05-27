@@ -2,6 +2,7 @@ import { ClerkProvider } from '@clerk/expo';
 import { tokenCache } from '@clerk/expo/token-cache';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from "expo-router";
+import * as WebBrowser from "expo-web-browser";
 import { useColorScheme } from 'react-native';
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
@@ -10,6 +11,7 @@ if (!publishableKey) {
   throw new Error('Add your Clerk Publishable Key to the .env file')
 }
 
+WebBrowser.maybeCompleteAuthSession();
 export default function RootLayout() {
   const colorScheme=useColorScheme();
   return(
