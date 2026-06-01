@@ -1,6 +1,7 @@
+import ListHeroCard from '@/component/list/ListHeroCard'
 import TabScreenBackground from '@/component/TabScreenBackground'
 import { useClerk, useUser } from '@clerk/expo'
-import { ScrollView } from 'react-native-reanimated/lib/typescript/Animated'
+import { ScrollView } from 'react-native'
 
 export default function ListScreen() {
   const { user } = useUser()
@@ -12,6 +13,7 @@ export default function ListScreen() {
       contentContainerStyle={{ padding: 20, gap: 14 }}>
 
       <TabScreenBackground/>
+      <ListHeroCard/>
     </ScrollView>
 
   )

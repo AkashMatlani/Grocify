@@ -5,7 +5,7 @@ export default function AuthRoutesLayout() {
   const { isSignedIn, isLoaded } = useAuth()
 
   if (!isLoaded) {
-    return;
+    return null;
   }
 
   if (isSignedIn) {
