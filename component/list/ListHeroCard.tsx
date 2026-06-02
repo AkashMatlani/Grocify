@@ -22,7 +22,7 @@ const ListHeroCard = () => {
             </Text>
 
             <View className='mt-4 overflow-hidden rounded-full bg-white/50'>
-            <View className='h-2 rounded-full bg-secondary' style={{width:`${completionRate}%}` }}></View>
+            <View className="h-2 rounded-full bg-secondary" style={{ width: `${completionRate}%` }}></View>
             </View>
         </View>
     )
