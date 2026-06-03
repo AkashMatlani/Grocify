@@ -1,3 +1,4 @@
+import CompletedItem from '@/component/list/CompletedItem';
 import ListHeroCard from '@/component/list/ListHeroCard';
 import PendingItemsCard from '@/component/list/PendingItemsCard';
 import TabScreenBackground from '@/component/TabScreenBackground';
@@ -21,8 +22,12 @@ export default function ListScreen() {
         <Text className='text-sm text-muted-foreground'>
           {pendingItems.length} active</Text>
       </View>
-      {pendingItems.map((item) => <PendingItemsCard key={item.id} item={item} />
-      )}
+      {pendingItems.map((item) =>(
+        <PendingItemsCard key={item.id} item={item} />
+      ))}
+
+      <CompletedItem/>
+
     </ScrollView>
   );
 }
