@@ -7,9 +7,9 @@ const PlannerScreen = () => {
     const { items } = useGroceryStore();
 
     const pendingCount = items.filter((item) => !item.purchased).length;
-    const highPriorirty = items.filter((item) => !item.purchased && item.priority === 'high').length;
+    const highPriorityCount = items.filter((item) => !item.purchased && item.priority === 'high').length;
 
-    const totalQuanity = items.filter((item) => !item.purchased)
+    const totalQuantity = items.filter((item) => !item.purchased)
         .reduce((sum, item) => sum + item.quantity, 0);
 
     return (
@@ -35,8 +35,28 @@ const PlannerScreen = () => {
                         <FontAwesome6 name="wand-magic-sparkles" size={18} color="#ffffff" />
                     </View>
                 </View>
-            </View>
 
+                <View className='flex-row gap-2'>
+                    <View className='flex-1 rounded-2xl border border-border bg-background/80 p-3'>
+                        <Text className='text-xs font-medium uppercase tracking-[1px] text-muted-foreground'>
+                            Pending
+                        </Text>
+                        <Text className='mt-1 text-xl font-bold text-foreground'>{pendingCount}</Text>
+                    </View>
+                     <View className='flex-1 rounded-2xl border border-border bg-background/80 p-3'>
+                        <Text className='text-xs font-medium uppercase tracking-[1px] text-muted-foreground'>
+                            High Priority
+                        </Text>
+                        <Text className='mt-1 text-xl font-bold text-foreground'>{highPriorityCount}</Text>
+                    </View>
+                     <View className='flex-1 rounded-2xl border border-border bg-background/80 p-3'>
+                        <Text className='text-xs font-medium uppercase tracking-[1px] text-muted-foreground'>
+                            Units
+                        </Text>
+                        <Text className='mt-1 text-xl font-bold text-foreground'>{totalQuantity}</Text>
+                    </View>
+                </View>
+            </View>
         </ScrollView>
     )
 }
