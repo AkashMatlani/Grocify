@@ -1,3 +1,4 @@
+import PlannerHeroImage from '@/component/planner/PlannerHeroImage';
 import TabScreenBackground from '@/component/TabScreenBackground';
 import { useGroceryStore } from '@/store/grocery-store';
 import { FontAwesome6 } from '@expo/vector-icons';
@@ -57,6 +58,7 @@ const PlannerScreen = () => {
                     </View>
                 </View>
             </View>
+            <PlannerHeroImage/>
         </ScrollView>
     )
 }
