@@ -1,3 +1,4 @@
+import PlannerFormCard from '@/component/planner/PlannerFormCard';
 import PlannerHeroImage from '@/component/planner/PlannerHeroImage';
 import TabScreenBackground from '@/component/TabScreenBackground';
 import { useGroceryStore } from '@/store/grocery-store';
@@ -44,13 +45,13 @@ const PlannerScreen = () => {
                         </Text>
                         <Text className='mt-1 text-xl font-bold text-foreground'>{pendingCount}</Text>
                     </View>
-                     <View className='flex-1 rounded-2xl border border-border bg-background/80 p-3'>
+                    <View className='flex-1 rounded-2xl border border-border bg-background/80 p-3'>
                         <Text className='text-xs font-medium uppercase tracking-[1px] text-muted-foreground'>
                             High Priority
                         </Text>
                         <Text className='mt-1 text-xl font-bold text-foreground'>{highPriorityCount}</Text>
                     </View>
-                     <View className='flex-1 rounded-2xl border border-border bg-background/80 p-3'>
+                    <View className='flex-1 rounded-2xl border border-border bg-background/80 p-3'>
                         <Text className='text-xs font-medium uppercase tracking-[1px] text-muted-foreground'>
                             Units
                         </Text>
@@ -58,7 +59,17 @@ const PlannerScreen = () => {
                     </View>
                 </View>
             </View>
-            <PlannerHeroImage/>
+            <PlannerHeroImage />
+
+            <View className='px-1'>
+                <Text className='text-sm font-semibold uppercase tracking-[1px] text-muted-foreground'>
+                    Build your list
+                </Text>
+                <Text className='mt-1 text-sm text-muted-foreground'>
+                    Add items with the right quantity, category , and urgency.
+                </Text>
+            </View>
+            <PlannerFormCard/>
         </ScrollView>
     )
 }
