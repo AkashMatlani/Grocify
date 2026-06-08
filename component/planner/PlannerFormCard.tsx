@@ -1,7 +1,7 @@
 import { GroceryCategory, Grocerypriority, useGroceryStore } from '@/store/grocery-store';
 import { FontAwesome6 } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Pressable, Text, TextInput, View } from 'react-native';
 
 const categories: GroceryCategory[] = ["Produce", "Dairy", "Bakery", "Pantry", "Snacks"];
 const priorities: string[] = ["low", "medium", "high"];
@@ -71,6 +71,32 @@ const PlannerFormCard = () => {
                     placeholderTextColor="#8aa397"
                 />
             </View>
+
+            {/* CATEGORIES */}
+            <Text className="mt-4 font-semibold text-foreground">Category</Text>
+            <View className='mt-2 flex-row flex-wrap gap-2'>
+                {categories.map((option) => {
+                    const active = option == category;
+                    return (
+                        <Pressable
+                            key={option}
+                            onPress={() => setCategory(option)}
+                            className={`flex-row items-center rounded-full
+                             px-4 py-2 
+                             ${active ? 'bg-primary' : 'bg-secondary'}`}
+                        >
+                            <FontAwesome6 name={categoryIcons[option]}
+                                size={12}
+                                color={active ? '#fff' : '#486856'} />
+                            <Text className={`ml-2 text-sm font-semibold 
+                            ${active ? "text-primary-foreground" : "text-secondary-foreground"}`}>
+                         {option}
+                            </Text>
+                        </Pressable>
+                    )
+                })}
+            </View>
+
         </View>
     )
 }
