@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 
 const categories: GroceryCategory[] = ["Produce", "Dairy", "Bakery", "Pantry", "Snacks"];
-const priorities: string[] = ["low", "medium", "high"];
+const priorities: Grocerypriority[] = ["low", "medium", "high"];
 
 const categoryIcons = {
     Produce: "leaf",
@@ -90,13 +90,47 @@ const PlannerFormCard = () => {
                                 color={active ? '#fff' : '#486856'} />
                             <Text className={`ml-2 text-sm font-semibold 
                             ${active ? "text-primary-foreground" : "text-secondary-foreground"}`}>
-                         {option}
+                                {option}
                             </Text>
                         </Pressable>
                     )
                 })}
             </View>
 
+            {/* PRIORITY */}
+            <Text className='mt-4 text-sm font-semibold text-foreground'>Priority</Text>
+            <View className='mt-2 flex-row gap-2'>
+                {priorities.map((option) => {
+                    const active = option === priority;
+                    const icon = option === "high" ? "bolt" : option === "medium" ? "compass" : "seedling";
+                    return (
+                        <Pressable
+                            key={option}
+                            onPress={() => setPriority(option)}
+                            className={`flex-row flex-1 items-center justify-center 
+                                gap-2  rounded-2xl py-2  ${active ? 'bg-primary' : 'bg-secondary'}`}
+                        >
+                            <FontAwesome6 name={icon} size={12} color={active ? "#ffffff" : "486856"} />
+                            <Text className={`mt-1 text-sm font-semibold capitalize ${active ?
+                                "text-primary-foreground" : "text-secondary-foreground"}`}
+                            >
+                                {option}
+                            </Text>
+                        </Pressable>
+                    )
+                })}
+            </View>
+
+            <Pressable
+                className={`mt-5 flex-row items-center justify-center rounded-2xl py-3 ${canCreate ? "bg-primary" : "bg-muted"}`}
+                onPress={createItem}
+                disabled={!canCreate}>
+
+                <FontAwesome6 name="plus" size={14} color={canCreate ? '#ffffff' : '7a9386'} />
+                <Text className={`ml-2 text-base font-semibold ${canCreate ? "text-primary-primary" : "text-muted-foreground"}`}>
+                    Add to Grocery List
+                </Text>
+            </Pressable>
         </View>
     )
 }
