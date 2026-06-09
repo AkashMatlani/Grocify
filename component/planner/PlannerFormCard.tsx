@@ -1,7 +1,7 @@
 import { GroceryCategory, Grocerypriority, useGroceryStore } from '@/store/grocery-store';
 import { FontAwesome6 } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { Pressable, Text, TextInput, View } from 'react-native';
+import { Alert, Pressable, Text, TextInput, View } from 'react-native';
 
 const categories: GroceryCategory[] = ["Produce", "Dairy", "Bakery", "Pantry", "Snacks"];
 const priorities: Grocerypriority[] = ["low", "medium", "high"];
@@ -36,6 +36,8 @@ const PlannerFormCard = () => {
             priority,
             quantity: Number(quantity)
         });
+
+        Alert.alert("Success", "Iteam created")
 
         //reset form
         setName("");
@@ -131,6 +133,12 @@ const PlannerFormCard = () => {
                     Add to Grocery List
                 </Text>
             </Pressable>
+
+            {error ? (
+                <View className='mt-3 rounded-2xl border border-destructive bg-destructive px-3 py-2'>
+                    <Text className=' text-sm text-white text-center uppercase'>{error}</Text>
+                </View>
+            ) : null}
         </View>
     )
 }

@@ -3,7 +3,8 @@ import PlannerHeroImage from '@/component/planner/PlannerHeroImage';
 import TabScreenBackground from '@/component/TabScreenBackground';
 import { useGroceryStore } from '@/store/grocery-store';
 import { FontAwesome6 } from '@expo/vector-icons';
-import { ScrollView, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 
 const PlannerScreen = () => {
     const { items } = useGroceryStore();
@@ -15,10 +16,13 @@ const PlannerScreen = () => {
         .reduce((sum, item) => sum + item.quantity, 0);
 
     return (
-        <ScrollView className="flex-1 bg-background py-4"
+        <KeyboardAwareScrollView
+            bottomOffset={80}
             contentInsetAdjustmentBehavior='automatic'
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ padding: 20, gap: 14 }}>
+            contentContainerStyle={{ padding: 20, gap: 14 }}
+            className='flex-1 bg-background py-4'
+            keyboardShouldPersistTaps='handled'>
             <TabScreenBackground />
             <View className='gap-4 rounded-3xl border border-border bg-card/70 p-5'>
                 <View className='flex-row items-start justify-between'>
@@ -69,8 +73,8 @@ const PlannerScreen = () => {
                     Add items with the right quantity, category , and urgency.
                 </Text>
             </View>
-            <PlannerFormCard/>
-        </ScrollView>
+            <PlannerFormCard />
+        </KeyboardAwareScrollView>
     )
 }
 

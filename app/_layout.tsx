@@ -4,6 +4,7 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { Stack } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import { useColorScheme } from 'react-native';
+import { KeyboardProvider } from "react-native-keyboard-controller";
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
 
@@ -13,12 +14,14 @@ if (!publishableKey) {
 
 WebBrowser.maybeCompleteAuthSession();
 export default function RootLayout() {
-  const colorScheme=useColorScheme();
-  return(
-  <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-    <ThemeProvider value={colorScheme==="dark"?DarkTheme :DefaultTheme}>
-    <Stack  screenOptions={{headerShown:false}}/>
-          </ThemeProvider>
-  </ClerkProvider>
+  const colorScheme = useColorScheme();
+  return (
+    <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+      <KeyboardProvider>
+        <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+          <Stack screenOptions={{ headerShown: false }} />
+        </ThemeProvider>
+      </KeyboardProvider>
+    </ClerkProvider>
   );
 }
