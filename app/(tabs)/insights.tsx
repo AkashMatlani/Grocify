@@ -1,3 +1,5 @@
+import InsightStatsSection from '@/component/insights/InsightStatsSection'
+import UserProfile from '@/component/insights/UserProfile'
 import TabScreenBackground from '@/component/TabScreenBackground'
 import React from 'react'
 import { ScrollView } from 'react-native'
@@ -12,6 +14,7 @@ const Insights = () => {
       <TabScreenBackground />
       
       <UserProfile />
+      <InsightStatsSection/>
     </ScrollView>
   )
 }
