@@ -1,3 +1,4 @@
+import InsightCategorySection from '@/component/insights/InsightCategorySection'
 import InsightStatsSection from '@/component/insights/InsightStatsSection'
 import UserProfile from '@/component/insights/UserProfile'
 import TabScreenBackground from '@/component/TabScreenBackground'
@@ -10,11 +11,11 @@ const Insights = () => {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ padding: 20, gap: 14 }}
       contentInsetAdjustmentBehavior='automatic'>
-
       <TabScreenBackground />
-      
+
       <UserProfile />
-      <InsightStatsSection/>
+      <InsightStatsSection />
+      <InsightCategorySection />
     </ScrollView>
   )
 }
