@@ -1,3 +1,4 @@
+import ClearCompletedButton from '@/component/insights/ClearCompletedButton'
 import InsightCategorySection from '@/component/insights/InsightCategorySection'
 import InsightPrioritySection from '@/component/insights/InsightPrioritySection'
 import InsightStatsSection from '@/component/insights/InsightStatsSection'
@@ -18,6 +19,7 @@ const Insights = () => {
       <InsightStatsSection />
       <InsightCategorySection />
       <InsightPrioritySection/>
+      <ClearCompletedButton/>
     </ScrollView>
   )
 }
