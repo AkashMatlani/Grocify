@@ -51,7 +51,14 @@ export default function InsightCategorySection() {
                     </View>
                 )
             })}
+
+            {categoryEntries.length === 0 ? (
+                <View className="mt-3 rounded-2xl bg-muted px-4 py-3">
+                    <Text className="text-sm text-muted-foreground">
+                        Add items to reveal your category mix.
+                    </Text>
+                </View>
+            ) : null}
         </View>
     )
-
 }

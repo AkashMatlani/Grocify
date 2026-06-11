@@ -1,4 +1,5 @@
 import InsightCategorySection from '@/component/insights/InsightCategorySection'
+import InsightPrioritySection from '@/component/insights/InsightPrioritySection'
 import InsightStatsSection from '@/component/insights/InsightStatsSection'
 import UserProfile from '@/component/insights/UserProfile'
 import TabScreenBackground from '@/component/TabScreenBackground'
@@ -16,6 +17,7 @@ const Insights = () => {
       <UserProfile />
       <InsightStatsSection />
       <InsightCategorySection />
+      <InsightPrioritySection/>
     </ScrollView>
   )
 }
