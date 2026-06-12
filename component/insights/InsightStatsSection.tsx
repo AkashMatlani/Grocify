@@ -21,7 +21,7 @@ export default function InsightStatsSection() {
                     <View className='h-8 w-8  items-center justify-center rounded-xl bg-primary'>
                         <FontAwesome6 name="clock" size={18} color="#fff" />
                     </View>
-                    <Text className='mt-3 text-xs  uppercase tracking-[1px text-muted-foreground]'>
+                    <Text className='mt-3 text-xs  uppercase tracking-[1px] text-muted-foreground]'>
                         Pending
                     </Text>
                     <Text className='mt-1 text-3xl  font-extrabold text-foreground'>{pendingItems}
@@ -49,6 +49,7 @@ export default function InsightStatsSection() {
                     <Text className='mt-1 text-3xl  font-extrabold text-foreground'>{totalItems}
                     </Text>
                 </View>
+                 </View>
 
                 <View className='rounded-3xl border border-border bg-card p-4'>
                     <View className='flex-row items-center justify-between'>
@@ -59,7 +60,6 @@ export default function InsightStatsSection() {
                         <View className='h-3 rounded-full bg-ring' style={{ width: `${Math.max(2, completionRate)}%` }}>
                         </View>
                     </View>
-                </View>
             </View>
         </>
     )
