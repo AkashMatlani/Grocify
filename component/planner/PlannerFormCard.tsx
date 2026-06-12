@@ -75,10 +75,10 @@ const PlannerFormCard = () => {
             </View>
 
             {/* CATEGORIES */}
-            <Text className="mt-4 font-semibold text-foreground">Category</Text>
+            <Text className="mt-4  text-sm font-semibold text-foreground">Category</Text>
             <View className='mt-2 flex-row flex-wrap gap-2'>
                 {categories.map((option) => {
-                    const active = option == category;
+                    const active = option === category;
                     return (
                         <Pressable
                             key={option}
