@@ -19,7 +19,7 @@ const PendingItemsCard = ({ item }: { item: GroceryItem }) => {
     };
 
     return (
-        <View className='rounded-3xl border border-border bg-background p-4'>
+        <View className='rounded-3xl border border-border bg-card p-4'>
             <View className='flex-row items-center gap-3'>
                 <Pressable className='mt-1 size-6 items-center justify-center rounded-full border-2 border-border bg-card'
                     onPress={() => togglePurchased(item.id)}>
@@ -28,7 +28,7 @@ const PendingItemsCard = ({ item }: { item: GroceryItem }) => {
                     <View className='flex-row items-center justify-between gap-2'>
                         <Text className="flex-1 text-lg font-semibold text-card-foreground">{item.name}</Text>
                         <View className={`rounded-full px-3 py-1 ${priorityPillBg[item.priority]}`}>
-                            <Text className={`text-xs font-bold uppercase${priorityPillText[item.priority]}`}>{item.priority}
+                            <Text className={`text-xs font-bold uppercase first-letter:${priorityPillText[item.priority]}`}>{item.priority}
                             </Text>
                         </View>
                     </View>
