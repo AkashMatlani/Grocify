@@ -1,7 +1,8 @@
 import { useClerk, useUser } from '@clerk/expo';
 import { FontAwesome6 } from '@expo/vector-icons';
+import { Image } from "expo-image";
 import React from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 const UserProfile = () => {
 
@@ -28,7 +29,7 @@ const UserProfile = () => {
                     onPress={() => signOut()}
                     className='h-9 w-9 items-center justify-center rounded-xl bg-destructive'
                 >
-                    <FontAwesome6 name="right-form-bracket" size={13} color="#d45f58" />
+                    <FontAwesome6 name="right-from-bracket" size={13} color="#d45f58" />
                 </Pressable>
             </View>
         </View>
